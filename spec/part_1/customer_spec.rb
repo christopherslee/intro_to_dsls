@@ -1,4 +1,4 @@
-require_relative '../../lib/customer'
+require_relative '../../lib/part_1/customer'
 
 describe Customer do
   it "is in good standing if they have a zero balance" do

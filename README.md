@@ -53,11 +53,10 @@ can be run using rake as mentioned above.
 
 *Getting Answers*
 
-If you get stuck, answers via bitly link to a GitHub gist can be found
-at the bottom of this readme. I urge you to try and work through it
-without looking at the answers, but they are there if you get stuck.
-Don't let that discourage you, try to understand it and see if you can
-implement your own scenario later!
+If you get stuck, answers a GitHub gist can be found at the bottom of this
+readme. I urge you to try and work through it without looking at the answers,
+but they are there if you get stuck. Don't let that discourage you, try to
+understand it and see if you can implement your own scenario later!
 
 Part 1: Warmup Stretches
 ------------------------
@@ -80,8 +79,8 @@ RSpec uses metaprogramming to bring BDD style testing to ruby. For more,
 on creating your own RSpec from scratch, see [Destroy All Software's
 Screencast](https://www.destroyallsoftware.com/screencasts/catalog/building-rspec-from-scratch).
 
-In ``lib/customer.rb`` there is a Customer class. Simply implement the
-``good_standing?`` method to make the specs pass. You can run the specs
+In ``lib/part_1/customer.rb`` there is a Customer class. Simply implement the
+``good_standing?`` method to make all the specs pass. You can run the specs
 for part 1 with:
 
       > rake spec:part_1
@@ -110,10 +109,40 @@ time we're aiming for a DSL that looks like this:
         pay_bill :gas, 16.54           # +1 point
         pay_bill :cable, 106.41        # +2 points
         awarded_credit 10000.00        # +10 points
-        missed_payment :cable, 104.32  # -2 points
+        missed_payment :phone, 104.32  # -2 points
       end
 
       > 12
+
+We're going to use the builder pattern, in which we will use
+``CreditSccore.simulate`` to create us a ``Consumer`` object that will
+keep track of its own score. But how do we execute our DSL on that
+consumer?
+
+You may have guessed it, ``instance_eval`` is what we're going to use.
+If you examine the DSL code you've probably noticed that we're
+leveraging Ruby blocks, and our DSL is a block that we pass to the
+``CreditScore`` class for evaluation. ``instance_eval`` lets us evaluate
+that block in the context of our consumer instance. This "trick" is the
+majority of the magic behind most Ruby DSLs. We're leveraging Ruby
+blocks and ``instance_eval`` to invoke methods on an object.
+
+Run the specs for part 2:
+
+      > rake spec:part_2
+
+And you'll immediately see an error:
+
+      > undefined method `pay_bill' for #<Consumer:0x007f916d1bc370 @score=0>
+
+And that makes sense, right? Our DSL is trying to invoke the ``pay_bill``
+method in the context of our consumer, so we need to implement the
+method on the ``Consumer`` class.
+
+Now it's your turn. Implement the builder pattern in
+``CreditScore.simulate`` and our DSL actions on the ``Consumer`` class.
+
+As always, when the specs are green, you're good to move on.
 
 Part 3: Delayed Execution
 -------------------------
@@ -189,6 +218,12 @@ Conclusion
 We've worked through different examples of developing DSLs that should
 give you a great base to explore on your own. You can mix in other
 techniques to make more powerful DSLs for your own application.
+
+Answers
+-------
+
+[Part 1](https://gist.github.com/christopherslee/6153296)
+[Part 2](https://gist.github.com/christopherslee/6153279)
 
 Credits and additional resources
 --------------------------------
