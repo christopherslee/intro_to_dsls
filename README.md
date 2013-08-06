@@ -235,9 +235,9 @@ test scenario setup for data and mocks/stubs.
 Answers
 -------
 
-[Part 1](https://gist.github.com/christopherslee/6153296)
-[Part 2](https://gist.github.com/christopherslee/6153279)
-[Part 3](https://gist.github.com/christopherslee/6161539)
+# [Part 1](https://gist.github.com/christopherslee/6153296)
+# [Part 2](https://gist.github.com/christopherslee/6153279)
+# [Part 3](https://gist.github.com/christopherslee/6161539)
 
 Credits and additional resources
 --------------------------------
@@ -251,12 +251,17 @@ I received inspiration and help from the following sources:
   Blog](http://yonkeltron.com/blog/2010/05/13/creating-a-ruby-dsl/)
 * [Docile](http://ms-ati.github.io/docile/)
 
+Want to contribute?
+-------------------
+
+This is GitHub after all. Fork and send me a pull request!
+
 About the Author
-================
+----------------
 
 Christopher Lee is a Principal Software Engineer at Technical Team Lead
 at ConstantContact. He was the technical co-founder of MobManager.com,
-which was acquired by Constant Contact in 2011.  He leads the Ruby/Rails
+which was acquired by Constant Contact in 2011. He leads the Ruby/Rails
 best practice group at ConstantContact.
 
 He has a B.S. Computer Science from the University of Illinois at
@@ -264,4 +269,6 @@ Urbana-Champaign, an M.S. Software Engineering w/distinction from DePaul
 University, and is an alumnus of Northwestern's Kellogg School of
 Management.
 
-Email Me: christopher (dot) s (dot) lee (at) gmail (dot) com
+Like the course? Have some constructive criticisms? Just want to talk
+about programming, craftsmanship, and startups? Feel free to contact me
+at: christopher (dot) s (dot) lee (at) gmail (dot) com
