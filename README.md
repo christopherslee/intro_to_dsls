@@ -15,7 +15,7 @@ I believe internal DSLs in Ruby are part of the intuitive expressiveness
 that draws developers to the language.
 
 
-*Internal vs External*
+_Internal vs External DSLs_
 
 There are two types of DSLs, internal and external. You can think of
 internal DSLs as a DSL specfied and executed in your own code as your own code
@@ -27,14 +27,14 @@ DSLs](http://www.martinfowler.com/bliki/DomainSpecificLanguage.html)
 Workshop Structure
 ------------------
 
-*Technical Requirements*
+_Technical Requirements_
 
 You need at Ruby 1.9.x installed on your machine. Although most of the
 examples should work, Ruby 1.8.7 has been end of lifed and you should
 avoid using it for new projects (and actively work to migrate your
 existing projects too!)
 
-*Running specs with rake*
+_Running specs with rake_
 
 At each part of workshop, you should run the specified rake task to run
 the rspec tests to check your progress. In true TDD red/green fashion,
@@ -45,13 +45,13 @@ You don't need an intimiate knowledge of RSpec for this workshop, although
 you will need to be able to read the short specifications to guide your
 development.
 
-*Folder Structure*
+_Folder Structure_
 
 Starter code will be put in the lib directory. The code you will write
 can be found there. The test specs are found in the spec directory and
 can be run using rake as mentioned above.
 
-*Getting Answers*
+_Getting Answers_
 
 If you get stuck, answers a GitHub gist can be found at the bottom of this
 readme. I urge you to try and work through it without looking at the answers,
