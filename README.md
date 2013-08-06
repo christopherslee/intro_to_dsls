@@ -235,9 +235,9 @@ test scenario setup for data and mocks/stubs.
 Answers
 -------
 
-# [Part 1](https://gist.github.com/christopherslee/6153296)
-# [Part 2](https://gist.github.com/christopherslee/6153279)
-# [Part 3](https://gist.github.com/christopherslee/6161539)
+* [Part 1](https://gist.github.com/christopherslee/6153296)
+* [Part 2](https://gist.github.com/christopherslee/6153279)
+* [Part 3](https://gist.github.com/christopherslee/6161539)
 
 Credits and additional resources
 --------------------------------
