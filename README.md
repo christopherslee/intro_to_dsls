@@ -176,6 +176,11 @@ have to be executed in the order the code is written. You can set up the
 accounts first, or you can set them up last. Either way it won't matter.
 How will we do that? Blocks are not objects but we can convert them to
 Procs. We can store the Procs and invoke them when we are ready.
+
+From our previous lesson we learned that the ``&`` operator binds our
+block to an object. When we drop the ``&`` symbol, we are left with a
+Proc. If we want a block again? Just add the ``&`` symbol again.
+
 We'll create a more advanced version of our credit score builder to
 store our Procs, and then execute them all in our specified order at the end.
 
@@ -218,48 +223,21 @@ There are just a few places you need to inject your new ruby-fu.
 
 In the famous words of Keanu Reaves, "Whoa."
 
-Part 4: Extra Credit
---------------------
-
-Can you use metaprogramming to make the DSL look like this?
-
-If you need a metaprogramming refresher, see [Introduction to Metapgramming
-Workshop](https://github.com/christopherslee/intro_to_metaprogramming).
-
-      puts CreditScore.simulate do
-        add_account :electric
-        add_account :cable
-        add_account :gas
-
-        # 3 points for paying all bills on time
-        month(:january) do
-          pay_electric_bill 34.12
-          pay_gas_bill 16.54
-          pay_cable_bill 106.41
-        end
-
-        # +2 points and -2 points for not paying the cable bill
-        month(:february) do
-          pay_electric_bill 34.12
-          pay_gas_bill 16.54
-        end
-      end
-
-      > 3
-
-
 Conclusion
 ----------
 
 We've worked through different examples of developing DSLs that should
 give you a great base to explore on your own. You can mix in other
-techniques to make more powerful DSLs for your own application.
+techniques to make more powerful DSLs for your own application. In my
+recent experience, DSLs can be very useful in testing, especially in
+test scenario setup for data and mocks/stubs.
 
 Answers
 -------
 
 [Part 1](https://gist.github.com/christopherslee/6153296)
 [Part 2](https://gist.github.com/christopherslee/6153279)
+[Part 3](https://gist.github.com/christopherslee/6161539)
 
 Credits and additional resources
 --------------------------------
@@ -272,3 +250,18 @@ I received inspiration and help from the following sources:
 * [Yonkeltron.com
   Blog](http://yonkeltron.com/blog/2010/05/13/creating-a-ruby-dsl/)
 * [Docile](http://ms-ati.github.io/docile/)
+
+About the Author
+================
+
+Christopher Lee is a Principal Software Engineer at Technical Team Lead
+at ConstantContact. He was the technical co-founder of MobManager.com,
+which was acquired by Constant Contact in 2011.  He leads the Ruby/Rails
+best practice group at ConstantContact.
+
+He has a B.S. Computer Science from the University of Illinois at
+Urbana-Champaign, an M.S. Software Engineering w/distinction from DePaul
+University, and is an alumnus of Northwestern's Kellogg School of
+Management.
+
+Email Me: christopher (dot) s (dot) lee (at) gmail (dot) com
