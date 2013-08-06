@@ -167,14 +167,17 @@ You've probably noticed our simulation doesn't really taken months into
 account, so let's do that. Now we'll add to our DSL to set up a consumer's
 accounts, and then we can specify what bills they paid in a month. If
 they didn't pay it, we know they missed it and we can dock points
-accordingly.
+accordingly. For simplicity, they get 1 point for paying a bill on time,
+and lose 2 points for every bill they forget to pay, regardless of the
+amount.
 
 One lesson I want you to take away from this is that your DSL doesn't
 have to be executed in the order the code is written. You can set up the
 accounts first, or you can set them up last. Either way it won't matter.
-How will we do that? With procs, of course. We'll change our credit
-score builder to store our actions as procs, and then execute them all
-in our specified order at the end.
+How will we do that? Blocks are not objects but we can convert them to
+Procs. We can store the Procs and invoke them when we are ready.
+We'll create a more advanced version of our credit score builder to
+store our Procs, and then execute them all in our specified order at the end.
 
       puts AdvancedCreditScore.simulate do
         add_account :electric
@@ -197,6 +200,23 @@ in our specified order at the end.
       end
 
       > 3
+
+
+Of course, we'll red/green test our way through this:
+
+      > rake spec:part_3
+
+I've taken the liberty of writing a lot of the boilerplate already.
+There are just a few places you need to inject your new ruby-fu.
+
+* In ``lib/part_3/advanced_credit_score.rb``, use ``instance_eval`` to
+  invoke the block on the ``AdvancedConsumer`` instance.
+* In ``lib/part_3/advanced_consumer.rb`` fill in the implementation of
+  the DSL methods.
+* In ``lib/part_3/monthly_score.rb`` implement the ``process`` method to
+  calculate the monthly score and then return it.
+
+In the famous words of Keanu Reaves, "Whoa."
 
 Part 4: Extra Credit
 --------------------
