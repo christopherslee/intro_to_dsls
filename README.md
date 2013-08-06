@@ -154,14 +154,6 @@ Run the specs for part 2:
 
       > rake spec:part_2
 
-And you'll immediately see an error:
-
-      > undefined method `pay_bill' for #<Consumer:0x007f916d1bc370 @score=0>
-
-And that makes sense, right? Our DSL is trying to invoke the ``pay_bill``
-method in the context of our consumer, so we need to implement the
-method on the ``Consumer`` class.
-
 Now it's your turn. Implement the builder pattern in
 ``CreditScore.simulate`` and our DSL actions on the ``Consumer`` class.
 You'll pass a block to ``simulate`` and use ``instance_eval``.
@@ -184,7 +176,7 @@ How will we do that? With procs, of course. We'll change our credit
 score builder to store our actions as procs, and then execute them all
 in our specified order at the end.
 
-      puts CreditScore.simulate do
+      puts AdvancedCreditScore.simulate do
         add_account :electric
         add_account :gas
 
