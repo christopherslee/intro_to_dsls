@@ -127,6 +127,29 @@ that block in the context of our consumer instance. This "trick" is the
 majority of the magic behind most Ruby DSLs. We're leveraging Ruby
 blocks and ``instance_eval`` to invoke methods on an object.
 
+      class User
+        def initialize
+          @monthly_rent = 1000
+        end
+      end
+
+      user = User.new
+      user.instance_eval do
+        puts self.class
+        puts @monthly_rent
+      end
+
+      > User
+      > 1000
+
+The last part of the puzzle is how we get our block into our builder object.
+By default, blocks are anonymous arguments to methods that can be
+invoked with ``yield``. But when you want to pass the block to another
+method you'll have to attach a binding the block with the ``&`` symbol.
+The argument must be the last argument in the method signature and
+prefix with the ``&`` symbol.
+
+Let's leverage instance eval and blocks to get our DSL working.
 Run the specs for part 2:
 
       > rake spec:part_2
@@ -141,6 +164,7 @@ method on the ``Consumer`` class.
 
 Now it's your turn. Implement the builder pattern in
 ``CreditScore.simulate`` and our DSL actions on the ``Consumer`` class.
+You'll pass a block to ``simulate`` and use ``instance_eval``.
 
 As always, when the specs are green, you're good to move on.
 
